@@ -1,7 +1,6 @@
 from collections import Counter
-import collections
-import math
 from base_numeral_system import base_ns
+import math
 
 
 def encode(text: str):
@@ -20,8 +19,18 @@ def encode(text: str):
     result = []
     for letter in text:
         result += codes[letter]
+
     return codes, result
 
 
 def decode(codes: dict, encoded_text: list):
-    return ""
+    result = ""
+    i = 0
+    while len(encoded_text) >= i:
+        for letter in codes:
+            if encoded_text[:i] == codes[letter]:
+                encoded_text = encoded_text[i:]
+                result += letter
+                i = 0
+        i += 1
+    return result
