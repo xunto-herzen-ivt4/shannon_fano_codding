@@ -1,4 +1,5 @@
 from shannon_fano_codding import encode, decode
+import pprint
 
 messages = [
     "Код_Шеннона-Фано",
@@ -22,10 +23,11 @@ messages = [
 '''
 ]
 
+pp = pprint.PrettyPrinter(indent=4)
 for message in messages:
     codes, encoded = encode(message)
     print('\n\n=====')
     print('Message:\n', message)
-    print('Codes:\n', codes)
+    print('Codes:\n', pp.pprint(codes))
     print('Encode:\n', encoded)
     print('Decode:\n', decode(codes, encoded))
