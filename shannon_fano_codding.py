@@ -10,9 +10,9 @@ def encode(text: str):
     for letter, frequency in Counter(text).most_common():
         p = frequency/len(text)
         amount = math.ceil(-math.log(p, 2))
-        codes[letter] = base_ns.convert(q, 2, amount).fraction
-        nulls = amount - len(codes[letter])
-        codes[letter] += [0] * nulls
+        code = base_ns.convert(q, 2, amount).fraction
+        code += [0] * (amount - len(code))
+        codes[letter] = code
         q += p
 
     # Code phrase
