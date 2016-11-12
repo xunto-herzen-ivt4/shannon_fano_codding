@@ -27,8 +27,8 @@ def decode(codes: dict, encoded_text: list):
     result = ""
     i = 0
     while len(encoded_text) >= i:
-        for letter in codes:
-            if encoded_text[:i] == codes[letter]:
+        for letter, code in codes.items():
+            if encoded_text[:i] == code:
                 encoded_text = encoded_text[i:]
                 result += letter
                 i = 0
