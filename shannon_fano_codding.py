@@ -15,7 +15,7 @@ def encode(text: str):
         codes[letter] = code
         q += p
 
-    # Code phrase
+    # Encode phrase
     result = []
     for letter in text:
         result += codes[letter]
